@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#: Script Name: aptomymain_v0.50.sh 
 #: Authors: Andrew Zhang
 #: Reviewers: 
 #: Date: 02/26/2015
@@ -48,7 +48,7 @@ fi
 if [ -z "$APTOMY_LOG_HOME" ]; then
         echo ""
 	echo "APTOMY_LOG_HOME is not defined."
-        echo "Please created a APTOMY_LOG_HOME!"
+        echo "Please createda APTOMY_LOG_HOME!"
         exit
 fi
 
