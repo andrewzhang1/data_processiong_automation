@@ -12,26 +12,26 @@ if 'attachment' not in os.listdir(detach_dir):
  
 #userName = raw_input('Enter your GMail username:')
 #passwd = getpass.getpass('Enter your password: ')
-userName="12345@gmail.com"
-passwd="password"
+userName="aptomy.production@gmail.com"
+passwd="Nian@0127"
  
 try:
     imapSession = imaplib.IMAP4_SSL('imap.gmail.com')
     typ, accountDetails = imapSession.login(userName, passwd)
     if typ != 'OK':
-        print 'Not able to sign in!'
+        print ('Not able to sign in!')
         raise
     #imapSession.select('[Gmail]/All Mail')
     imapSession.select('Inbox')
     typ, data = imapSession.search(None,'UNSEEN')
     if typ != 'OK':
-        print 'Error searching Inbox.'
+        print ('Error searching Inbox.')
         raise
 # Iterating over all emails
     for msgId in data[0].split():
         typ, messageParts = imapSession.fetch(msgId, '(RFC822)')
         if typ != 'OK':
-            print 'Error fetching mail.'
+            print ('Error fetching mail.')
             raise
  
         emailBody = messageParts[0][1]
@@ -53,11 +53,11 @@ try:
             if bool(fileName):
                 filePath = os.path.join(detach_dir, 'attachment', fileName)
                 if not os.path.isfile(filePath) :
-                    print fileName
+                    print (fileName)
                     fp = open(filePath, 'wb')
                     fp.write(part.get_payload(decode=True))
                     fp.close()
     imapSession.close()
     imapSession.logout()
 except :
-    print 'Not able to download all attachments.' 
+    print ('Not able to download all attachments.')

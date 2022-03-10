@@ -1,7 +1,7 @@
 # aptomy control script for scilab to process data
 # V0.51
 # Andrew 2015/05/14
-# Notice: Still harded coded for all the pathes
+# Notice: Still harded coded for all the path
 
 while true 
 do cd
